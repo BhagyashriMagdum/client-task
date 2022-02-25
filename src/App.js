@@ -1,22 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+
+// import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import EventEdit from './EventEdit';
+import EventList from './EventList';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={EventList}></Route>
+            <Route path="/edit/:eventid" component={EventEdit}></Route>
+          </Switch>
+        </BrowserRouter>
       </header>
     </div>
   );
